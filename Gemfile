@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby ENV['CUSTOM_RUBY_VERSION'] || '2.5.3'
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.5.5'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -66,7 +66,7 @@ group :development do
 
   gem 'dotenv-rails'
 
-  gem 'mdl', require: false # Markdown lint tool.
+#  gem 'mdl', require: false # Markdown lint tool.
   gem 'os', '~> 1.0'
   gem 'rubocop', require: false
   gem 'wdm', '>= 0.1.0' if Gem.win_platform? # Require wdm for Windows.
@@ -112,3 +112,8 @@ gem 'strava-api-v3' # Strava Ruby API Client.
 gem 'stripe' # Ruby library for the Stripe API.
 
 gem 'sidekiq'
+
+gem 'url'
+gem 'chef-utils', '~> 16.4', '>= 16.4.41'
+gem 'mysql2'
+#gem 'activerecord-mysql2-adapter', '~> 0.0.3'
