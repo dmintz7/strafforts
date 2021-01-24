@@ -20,7 +20,7 @@ WORKDIR /app
 RUN bundle install --local
 RUN bundle
 
-RUN echo "*/30 *  * * *   root    cd /opt/strafforts/ && /bin/bash -lc 'bundle exec bin/rails fetch:latest'" >> /etc/crontab
+RUN echo "*/30 *  * * *   root    cd /app/strafforts/ && /bin/bash -lc 'bundle exec bin/rails fetch:latest'" >> /etc/crontab
 
 EXPOSE 5000
 
