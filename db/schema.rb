@@ -218,7 +218,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_120140) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "subscription_plans", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "subscription_plans", id: :primary_key, force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "duration"
@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(version: 2019_02_16_120140) do
 
   create_table "subscriptions", force: :cascade do |t|
     t.integer "athlete_id"
-    t.uuid "subscription_plan_id"
+    t.integer "subscription_plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "starts_at"
