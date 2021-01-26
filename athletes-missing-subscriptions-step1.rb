@@ -9,4 +9,5 @@ for id in results
 end
 
 puts "athletes:apply_pro PLAN=""Lifetime"" ID="+ids.delete_prefix(",")
-ActiveRecord::Base.connection.exec_query("UPDATE subscription_plans SET name = 'Lifetime' WHERE name = 'Lifetime Pro'")
+ActiveRecord::Base.connection.exec_query("UPDATE athletes SET email_confirmed = 1 WHERE email_confirmed = 0;")
+ActiveRecord::Base.connection.exec_query("UPDATE subscription_plans SET name = 'Lifetime' WHERE name = 'Lifetime Pro';")
