@@ -7,9 +7,10 @@ if [ ! -f /app/.env ]; then
 	echo STRAVA_API_CLIENT_SECRET=$STRAVA_API_CLIENT_SECRET >> /app/.env
 fi
 
+rm /app/tmp/pids/server.pid
+
 echo "Initializing Database"
 bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails db:seed
-nohup python3 -u /app/run-bash.py &
 service redis-server stop
 
 echo "Starting Server"
