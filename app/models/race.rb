@@ -44,6 +44,10 @@ JOIN races AS r ON a.id = r.activity_id
 WHERE r.athlete_id = #{athlete_id}
 GROUP BY 1
 ORDER BY 1 DESC"
-    ActiveRecord::Base.connection.execute(sql).values
+    if ENV['DB_ENGINE'] == 'postgresql'
+        ActiveRecord::Base.connection.execute(sql).values
+    else
+        ActiveRecord::Base.connection.execute(sql)
+    end
   end
 end
