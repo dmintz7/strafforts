@@ -1,4 +1,4 @@
-INSERT INTO public.athlete_infos
+INSERT INTO athlete_infos
 (
     athlete_id,
     username,
@@ -40,15 +40,15 @@ SELECT
     weight,
     created_at,
     updated_at
-FROM public.athletes;
+FROM athletes;
 
-UPDATE public.athlete_infos
+UPDATE athlete_infos
 SET created_at = '2017-01-01 00:00:00+00';
 
-UPDATE public.athlete_infos
+UPDATE athlete_infos
 SET updated_at = '2017-01-01 00:00:00+00';
 
-ALTER TABLE public.athletes
+ALTER TABLE athletes
 DROP COLUMN username,
 DROP COLUMN firstname,
 DROP COLUMN lastname,

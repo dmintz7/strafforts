@@ -38,9 +38,9 @@ class Race < ApplicationRecord
   end
 
   def self.find_years_and_counts_by_athlete_id(athlete_id)
-    sql = "SELECT EXTRACT(year FROM start_date_local) AS yyyy, COUNT (1)
-FROM public.activities AS a
-JOIN public.races AS r ON a.id = r.activity_id
+    sql = "SELECT EXTRACT(year FROM start_date_local) AS yyyy, COUNT(1)
+FROM activities AS a
+JOIN races AS r ON a.id = r.activity_id
 WHERE r.athlete_id = #{athlete_id}
 GROUP BY 1
 ORDER BY 1 DESC"

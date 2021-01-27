@@ -7,5 +7,5 @@ SELECT
     'https://www.strava.com/athletes/' || a.id AS STRAVA_URL,
     to_char(a.created_at, 'YYYY/MM/DD') AS DATE_CREATED,
     to_char(a.last_active_at, 'YYYY/MM/DD') AS LAST_LOGIN
-FROM public.athletes AS a
-JOIN public.athlete_infos AS ai on a.id = ai.athlete_id
+FROM athletes AS a
+JOIN athlete_infos AS ai on a.id = ai.athlete_id
