@@ -1,9 +1,6 @@
 import os, schedule, time
 from multiprocessing import Process
 
-def run_command(command):
-	os.system(command)
-
 def run_scheduler():
 	while True:
 		try:
@@ -14,6 +11,7 @@ def run_scheduler():
 		except:
 			pass
 		
-schedule.every(5).minutes.do(run_command, '/bin/bash /app/all-athletes-lifetime-subscriptions.sh')
+schedule.every(5).minutes.do(os.system, '/bin/bash /app/all-athletes-lifetime-subscriptions.sh')
 p1 = Process(target=run_scheduler)
+print("Starting Script to Auto-subscribe and Confirm Email Addresses")
 p1.start()

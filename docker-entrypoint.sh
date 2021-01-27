@@ -9,7 +9,8 @@ fi
 
 echo "Initializing Database"
 bundle exec rails db:create && bundle exec rails db:migrate && bundle exec rails db:seed
-python3 /app/run-bash.py
+nohup python3 -u /app/run-bash.py &
+service redis-server stop
 
 echo "Starting Server"
 yarn start
