@@ -32,7 +32,7 @@ class Homepage extends React.Component {
       '&response_type=code&redirect_uri=' +
       redirectUri +
       config.get('app.redirectUriPath') +
-      '&approval_prompt=auto&scope=read,profile:read_all,activity:read';
+      '&approval_prompt=auto&scope=read_all,profile:read_all,activity:read_all';
 
     return (
       <div>

@@ -13,7 +13,7 @@ RSpec.describe AuthController, type: :request do
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_EXCHANGE_REQUEST_BODY, 400)
 
       # act.
-      get '/auth/exchange-token', params: { scope: 'profile:read_all,read,activity:read' }
+      get '/auth/exchange-token', params: { scope: 'profile:read_all,read_all,activity:read_all' }
 
       # assert.
       expect(response).to redirect_to('/errors/503')
@@ -31,7 +31,7 @@ RSpec.describe AuthController, type: :request do
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_REFRESH_REQUEST_BODY, 400)
 
       # act.
-      get '/auth/exchange-token', params: { scope: 'profile:read_all,read,activity:read' }
+      get '/auth/exchange-token', params: { scope: 'profile:read_all,read_all,activity:read_all' }
 
       # assert.
       expect(response).to redirect_to('/errors/503')
@@ -42,7 +42,7 @@ RSpec.describe AuthController, type: :request do
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_EXCHANGE_REQUEST_BODY, 400)
 
       # act.
-      get '/auth/exchange-token', params: { scope: 'read' }
+      get '/auth/exchange-token', params: { scope: 'read_all' }
 
       # assert.
       expect(response).to redirect_to('/errors/400')
@@ -61,7 +61,7 @@ RSpec.describe AuthController, type: :request do
       stub_strava_post_request(Settings.strava.api_auth_token_url, TOKEN_EXCHANGE_REQUEST_BODY, 200, token_exchange_response_body)
 
       # act.
-      get '/auth/exchange-token', params: { scope: 'profile:read_all,read,activity:read' }
+      get '/auth/exchange-token', params: { scope: 'profile:read_all,read_all,activity:read_all' }
 
       # assert.
       expect(response).to redirect_to(root_path)
