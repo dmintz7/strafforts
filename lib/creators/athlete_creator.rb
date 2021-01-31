@@ -20,7 +20,7 @@ module Creators
 
           @athlete = Athlete.new
           @athlete.id = athlete_id
-          @athlete.is_public = true # Set profile to true by default when it's a new athlete.
+          @athlete.is_public = false # Set profile to false by default when it's a new athlete.
         else
           Rails.logger.info("AthleteCreator - Updating athlete #{athlete_id}.")
         end
