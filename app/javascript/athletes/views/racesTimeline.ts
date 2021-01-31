@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import * as _ from 'lodash';
 
 import { AppHelpers } from '../helpers/appHelpers';
 import { HtmlHelpers } from '../helpers/htmlHelpers';
@@ -140,6 +141,10 @@ export default class RacesTimelineView extends BaseView {
                                 </h3>
                                 <div class="timeline-body">
                                     ${distanceBlock}
+                                    <div class="activity-data">
+                                        <strong>Description: </strong>${item['activity_description']}
+                                    </div>
+                                    <br />
                                     <div class="activity-data">
                                         <strong>Time: </strong>${item['elapsed_time_formatted']}
                                     </div>

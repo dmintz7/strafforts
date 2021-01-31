@@ -101,6 +101,7 @@ export default class Overview extends BaseView {
                             : `<th class="col-md-1 text-center badge-cell hidden-md-down">Type</th>`;
                         const showDistanceColumn = model['distance'] === 'Recent';
                         const activityColumnWidth = showDistanceColumn ? '2' : '3';
+                        const descriptionColumnWidth = showDistanceColumn ? '2' : '3';
                         const distanceColumnHeader = showDistanceColumn
                             ? `<th class="col-md-1 hidden-xs-down">Distance</th>`
                             : '';
@@ -136,6 +137,9 @@ export default class Overview extends BaseView {
                                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                                         ${item['activity_name']}
                                     </a>
+                                </td>
+                                <td>
+                                    ${item['activity_description']}
                                 </td>
                                 ${distanceColumn}
                                 <td class="no-wrap" data-sort="${item['elapsed_time']}">
@@ -182,6 +186,7 @@ export default class Overview extends BaseView {
                                             <th class="col-md-1">Date</th>
                                             ${workoutTypeColumnHeader}
                                             <th class="col-md-${activityColumnWidth}">Activity</th>
+                                            <th class="col-md-${descriptionColumnWidth}">Description</th>
                                             ${distanceColumnHeader}
                                             <th class="col-md-1">Time</th>
                                             <th class="col-md-1 hidden-xs-down">Pace</th>
@@ -239,6 +244,9 @@ export default class Overview extends BaseView {
                                         ${item['activity_name']}
                                     </a>
                                 </td>
+                                <td>
+                                    ${item['activity_description']}
+                                </td>
                                 <td class="hidden-xs-down" data-sort="${distanceSortOrder}">
                                     ${distance}
                                 </td>
@@ -275,6 +283,7 @@ export default class Overview extends BaseView {
                                     <tr>
                                         <th class="col-md-1">Date</th>
                                         <th class="col-md-3">Activity</th>
+                                        <th class="col-md-5">Description</th>
                                         <th class="col-md-1 hidden-xs-down">Distance</th>
                                         <th class="col-md-1">Time</th>
                                         <th class="col-md-1 hidden-xs-down">Pace</th>

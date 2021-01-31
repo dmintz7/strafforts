@@ -19,21 +19,6 @@ export namespace HtmlHelpers {
         return chart;
     }
 
-    export function getContributionWelcomeBadges() {
-        const html = `
-        <p>If you are a techie and would like to help out...</p>
-        <p class="link-contributions-welcome">
-            <a href="https://github.com/yizeng/strafforts/blob/master/docs/development-guide.md" target="_blank">
-                <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square"
-                    alt="Contributions Welcome">
-            </a>
-            <a href="https://github.com/yizeng/strafforts/pulls" target="_blank">
-                <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
-            </a>
-        </p>`;
-        return html;
-    }
-
     export function getLoadingIcon() {
         const html = `
         <div class='loading-icon-panel text-center overlay'>
@@ -103,6 +88,7 @@ export namespace HtmlHelpers {
                 <tr>
                 <th class="col-md-1">Date</th>
                 <th class="col-md-3">Activity</th>
+                <th class="col-md-5">Description</th>
                 ${distanceColumn}
                 <th class="col-md-1">Time</th>
                 <th class="col-md-1 hidden-xs-down">Pace</th>
@@ -134,6 +120,9 @@ export namespace HtmlHelpers {
                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                         ${item['activity_name']}
                     </a>
+                </td>
+                <td>
+                    ${item['activity_description']}
                 </td>
                 ${distanceColumn}
                 <td class="no-wrap" data-sort="${item['elapsed_time']}">
@@ -172,7 +161,8 @@ export namespace HtmlHelpers {
                 <tr>
                     <th class="col-md-1">Date</th>
                     <th class="col-md-1 text-center badge-cell hidden-xs-down">Type</th>
-                    <th class="col-md-4">Activity</th>
+                    <th class="col-md-3">Activity</th>
+                    <th class="col-md-5">Description</th>
                     <th class="col-md-1">Time</th>
                     <th class="col-md-1 hidden-xs-down">Pace</th>
                     <th class="col-md-2 hidden-lg-down">Gear</th>
@@ -198,6 +188,9 @@ export namespace HtmlHelpers {
                     <a class="strava-activity-link" href="${stravaLink}" target="_blank">
                         ${item['activity_name']}
                     </a>
+                </td>
+                <td>
+                    ${item['activity_description']}
                 </td>
                 <td class="no-wrap" data-sort="${item['elapsed_time']}">
                     ${item['elapsed_time_formatted']}

@@ -213,6 +213,7 @@ module ApplicationHelper
 
           item[:activity_id] = entity.activity.id
           item[:activity_name] = entity.activity.name
+          item[:activity_description] = entity.activity.description
           item[:start_date] = get_date_time(entity.activity.start_date_local)
           item[:workout_type_name] = entity.activity.workout_type.nil? ? 'n/a' : entity.activity.workout_type.name
           item[:elapsed_time_formatted] = Time.at(item[:elapsed_time]).utc.strftime('%H:%M:%S')
