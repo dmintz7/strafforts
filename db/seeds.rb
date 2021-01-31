@@ -61,12 +61,6 @@ Faq.find_or_create_by(faq_category_id: 1, title: 'Does Strafforts need/store my 
   "<p>It means all you need to do is to login to your Strava account then connect Strafforts with Strava and "\
   "no sensitive information will be stored on Strafforts server at all.</p>"
 )
-Faq.find_or_create_by(faq_category_id: 1, title: 'Does Strafforts store my credit card information?', content:
-  "<p>No. Strafforts utilizes online payment provider <a href='https://stripe.com' target='_blank'>Stripe</a> "\
-  "to charge PRO subscriptions fees with PCI compliance being taken care of.</p>"\
-  "<p>All transactions are done through the client browser and payment provider Stripe. "\
-  "No sensitive information shall be passed to or stored on Strafforts servers.</p>"
-)
 Faq.find_or_create_by(faq_category_id: 1, title: 'Is it possible to remove all my data on Strafforts?', content:
   "<p>Yes, absolutely. First make sure you have connected and logged into Strafforts, "\
   "then go to your 'Settings' sidebar by clicking <code><i class='fa fa-gears'></i></code> at top right corner of the app, "\
@@ -74,8 +68,7 @@ Faq.find_or_create_by(faq_category_id: 1, title: 'Is it possible to remove all m
   "then click 'Delete' button to remove yourself from Strafforts server.</p>"\
   "<p>If you've changed your mind, "\
   "you can re-connect to give Strafforts permission to retrieve your Strava data again. "\
-  "However, since all data has been deleted on our server, it might take a while to retrieve everything again.</p>"\
-  "<p><b>Note:</b> If you are currently on a PRO plan, the PRO subscription will be gone too.</p>"
+  "However, since all data has been deleted on our server, it might take a while to retrieve everything again.</p>"
 )
 Faq.find_or_create_by(faq_category_id: 1, title: 'Does Strafforts share my data to any third parties?', content:
   "<p>Not at all! Strafforts only gets your Strava data with your permission "\
@@ -198,13 +191,4 @@ Faq.find_or_create_by(faq_category_id: 5, title: 'Where was the homepage backgro
   "<a href='https://en.wikipedia.org/wiki/25_de_Abril_Bridge' target='_blank'>25 de Abril Bridge</a>.</p>"\
   "<p>It was the period I started this project while travelling in Europe, "\
   "where I did Lisbon Rock'n'Roll half marathon.</p>"
-)
-Faq.find_or_create_by(faq_category_id: 6, title: 'How to contact Strava support?', content:
-  "You can submit a request at Strava's support site "\
-  "<a href='https://support.strava.com/hc/en-us/requests/new' target='_blank'>here</a>."
-)
-Faq.find_or_create_by(faq_category_id: 6, title: 'How to contact Strafforts support?', content:
-  "<p>Please email us at <a href='mailto:support@strafforts.com'>support@strafforts.com</a> with your enquiries.</p>"\
-  "<p>Alternatively, if you have a GitHub account, "\
-  "you can also raise an issue <a href='https://github.com/yizeng/strafforts/issues' target='_blank'>here</a>.</p>"
 )
