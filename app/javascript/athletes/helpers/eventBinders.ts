@@ -103,14 +103,6 @@ export namespace EventBinders {
                     .fadeIn();
             });
 
-            // Append PR/Contributions welcome badges upon clicking settings toggle button.
-            $(document).on('click', '.control-sidebar-toggle', () => {
-                if (!$('.link-contributions-welcome').length) {
-                    const badges = HtmlHelpers.getContributionWelcomeBadges();
-                    $('#control-sidebar-data-tab').append(badges);
-                }
-            });
-
             // Settings' event listeners.
             $(document).on('submit', '.form-save-profile', (event) => {
                 saveProfile(event);

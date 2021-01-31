@@ -18,12 +18,6 @@
         <span id="athlete-id" class="hidden"><%= @athlete.id %></span>
         <span class="athlete-name"><%= @athlete.display_name %></span>
 
-        <p class='subscription-badge'>
-          <span class="label <%= @athlete.pro_subscription? ? 'pro-account' : 'free-account' %>">
-            <%= @athlete.pro_subscription? ? 'PRO' : 'FREE' %>
-          </span>
-        </p>
-
         <% unless @athlete.display_location.blank? %>
           <p><small class="athlete-location"><%= @athlete.display_location %></small></p>
         <% end %>
@@ -55,10 +49,9 @@
           <li id="treeview-menu-personal-bests-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-more-distance">
               <i class="fa fa-circle-o"> </i>More Distances
-              <span class='subscription-badge'><span class="label">PRO</span></span>
             </a>
 
-            <ul class="treeview-menu <%= @athlete.pro_subscription? ? '' : 'disabled pro-only' %>"></ul>
+            <ul class="treeview-menu"></ul>
           </li>
         </ul>
       </li>
@@ -74,20 +67,18 @@
           <li id="treeview-menu-races-for-distance" class="treeview-expander treeview">
             <a href="#" class="show-more-distance">
               <i class="fa fa-circle-o"> </i>More Distances
-              <span class='subscription-badge'><span class="label">PRO</span></span>
             </a>
 
-            <ul class="treeview-menu <%= @athlete.pro_subscription? ? '' : 'disabled pro-only' %>"></ul>
+            <ul class="treeview-menu"></ul>
           </li>
         </ul>
       </li>
 
       <li>
-        <a class="show-races-timeline treeview-header <%= @athlete.pro_subscription? ? '' : 'disabled pro-only' %>"
+        <a class="show-races-timeline treeview-header"
           href="?view=timeline&type=races">
           <i class="fa fa-calendar"></i>
           <span class="item-text">Races Timeline</span>
-          <span class='subscription-badge'><span class="label">PRO</span></span>
         </a>
       </li>
 
@@ -95,10 +86,9 @@
         <a class="treeview-header disabled" href="#">
           <i class="fa fa-line-chart"></i>
           <span>Races by Year</span>
-          <span class='subscription-badge'><span class="label">PRO</span></span>
         </a>
 
-        <ul class="treeview-menu <%= @athlete.pro_subscription? ? '' : 'disabled pro-only' %>">
+        <ul class="treeview-menu">
           <li id="treeview-menu-races-for-year" class="treeview-expander treeview hidden"></li>
         </ul>
       </li>

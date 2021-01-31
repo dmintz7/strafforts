@@ -16,15 +16,12 @@ Rails.application.routes.draw do
     post 'athletes/:id/fetch-latest' => 'athletes#fetch_latest'
     post 'athletes/:id/save-profile' => 'athletes#save_profile'
     post 'athletes/:id/reset-profile' => 'athletes#reset_profile'
-    post 'athletes/:id/subscribe-to-pro' => 'athletes#subscribe_to_pro'
 
     get 'faqs/index' => 'faqs#index'
   end
 
   get 'athletes/:id' => 'athletes#index'
   get 'athletes/:id/confirm-your-email' => 'athletes#confirm_email' # the page that allows users to enter their email addresses.
-  get 'athletes/:id/get-pro' => 'athletes#pro_plans'
-  get 'athletes/:id/cancel-pro' => 'athletes#cancel_pro'
 
   match '/404', to: 'errors#not_found', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all

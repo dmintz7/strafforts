@@ -8,11 +8,6 @@
       </a>
     </li>
     <li>
-      <a href="#control-sidebar-data-tab" data-toggle="tab" title="Show Data Tab">
-        <i class="fa fa-bar-chart"></i>
-      </a>
-    </li>
-    <li>
       <a href="#control-sidebar-diagnostics-tab" data-toggle="tab" title="Show Diagnostics Tab">
         <i class="fa fa-wrench"></i>
       </a>
@@ -41,37 +36,6 @@
         </label>
         <p><%= @athlete.athlete_info.email %></p>
       </div>
-
-      <h3 class="control-sidebar-heading">PRO Plan</h3>
-      <div class="form-group">
-        <label class="control-sidebar-subheading">Status:
-          <span class='subscription-badge pull-right'>
-            <span class="label <%= @athlete.pro_subscription? ? 'pro-account' : 'free-account' %>">
-              <%= @athlete.pro_subscription? ? 'PRO' : 'FREE' %>
-            </span>
-          </span>
-        </label>
-      </div>
-      <% if @athlete.pro_subscription? %>
-        <div class="form-group">
-          <label class="control-sidebar-subheading">
-            Name:
-            <span class="pull-right"><%= @athlete.pro_subscription_plan.name %></span>
-          </label>
-          <label class="control-sidebar-subheading">
-          <%= @athlete.pro_subscription.cancel_at_period_end ? 'Expires at:' : 'Renews at:' %>
-            <span class="pull-right"><%= @athlete.pro_subscription_expires_at_formatted %></span>
-          </label>
-          <% if @athlete.pro_subscription.cancel_at_period_end %>
-            <p>You have opted out auto-renewal after expiry.</p>
-          <% end %>
-        </div>
-          <% unless @athlete.pro_subscription_expires_at_formatted.blank? || 'Indefinite'.casecmp(@athlete.pro_subscription_expires_at_formatted).zero? %>
-            <a href="/athletes/<%= @athlete.id %>/get-pro" class="btn btn-block btn-flat btn-default get-pro">Manage</a>
-          <% end %>
-      <% else %>
-        <a href="/athletes/<%= @athlete.id %>/get-pro" class="btn btn-block btn-flat btn-danger get-pro">Upgrade</a>
-      <% end %>
 
       <%= form_tag({controller: 'api/athletes', action: 'save_profile'}, class: 'form-save-profile') do %>
       <h3 class="control-sidebar-heading">Profile Settings</h3>
@@ -119,18 +83,6 @@
       </div>
     </div>
 
-    <!-- Data tab content -->
-    <div class="tab-pane" id="control-sidebar-data-tab">
-      <h3 class="control-sidebar-heading">Data Settings
-          <span class='subscription-badge pull-right'>
-            <span class="label">PRO</span>
-          </span>
-      </h3>
-      <p>
-        Slowly getting implemented...
-      </p>
-    </div>
-
     <!-- Diagnostics tab content -->
     <div class="tab-pane" id="control-sidebar-diagnostics-tab">
       <h3 class="control-sidebar-heading">Diagnostics</h3>
@@ -157,10 +109,10 @@
       </div>
 
       <div class="form-group">
-        <h3 class="control-sidebar-heading">Fetch Now<span class='subscription-badge pull-right'><span class="label">PRO</span></span></h3>
+        <h3 class="control-sidebar-heading">Fetch Now</h3>
         <div>
           <%= form_tag({controller: 'api/athletes', action: 'fetch_latest'}, class: 'form-fetch-latest-activities') do %>
-            <button type="submit" class="btn btn-block btn-default btn-flat submit-form" <%= @athlete.pro_subscription? ? '' : 'disabled' %>>
+            <button type="submit" class="btn btn-block btn-default btn-flat submit-form">
               Fetch Now
             </button>
           <% end %>
@@ -168,12 +120,12 @@
       </div>
 
       <div class="form-group reset-profile">
-        <h3 class="control-sidebar-heading">Reset Profile<span class='subscription-badge pull-right'><span class="label">PRO</span></span></h3>
+        <h3 class="control-sidebar-heading">Reset Profile<span class='subscription-badge pull-right'></span></h3>
         <p>
           <%= label_tag(:is_hard_reset, 'Delete existing data:', class: 'control-sidebar-subheading checkbox inline') %>
-          <%= check_box_tag(:is_hard_reset, false, false, class: 'pull-right', disabled: !@athlete.pro_subscription?) %>
+          <%= check_box_tag(:is_hard_reset, false, false, class: 'pull-right') %>
         </p>
-        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile" <%= @athlete.pro_subscription? ? '' : 'disabled' %>>
+        <button type="button" class="btn btn-block btn-danger btn-flat" data-toggle="modal" data-target="#confirm-reset-profile">
           Reset
         </button>
       </div>
@@ -229,7 +181,6 @@
       </div>
       <div class="modal-body">
         <p>By clicking 'Confirm' below, Strafforts will schedule to revoke access to your Strava account and delete all your date from our server.</p>
-        <p><strong>Note</strong>: If you currently have a PRO subscription, it will be deleted together with your account!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" data-dismiss="modal">Cancel</button>

@@ -22,13 +22,6 @@ export namespace AppHelpers {
         return getBaseUrl(true);
     }
 
-    export function goToProPlansPage() {
-        const athleteId = $('#athlete-id')
-            .text()
-            .trim();
-        window.location.href = `${Helpers.getBaseUrl()}/athletes/${athleteId}/get-pro`;
-    }
-
     export function enableTooltips() {
         // Enable Bootstrap tooltip.
         ($('[data-toggle="tooltip"]') as any).tooltip({
