@@ -105,7 +105,7 @@
       <div class="form-group">
         <label class="control-sidebar-subheading">Last updated at:</label>
         <label></label>
-        <label class="pull-right"><%= @athlete.updated_at.strftime('%F %H:%M UTC') %></label>
+        <label class="pull-right"><%= @athlete.updated_at.in_time_zone(ENV['TZ']).strftime('%F %H:%M') %></label>
       </div>
 
       <div class="form-group">
