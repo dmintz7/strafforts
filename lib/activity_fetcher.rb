@@ -27,13 +27,13 @@ class ActivityFetcher
 
       # Retrieve activities of the current athlete.
       activities_to_retrieve = []
-      current_total_run_count = retrieve_current_total_run_count(athlete.id)
-      if mode == 'all' || athlete.total_run_count != current_total_run_count
-        activity_ids = get_all_activity_ids(type)
-        activity_ids.sort.each do |activity_id|
-          activities_to_retrieve << activity_id if mode == 'all' || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
-        end
+      activity_ids = get_all_activity_ids(type)
+      activity_ids.sort.each do |activity_id|
+        activities_to_retrieve << activity_id if mode == 'all' || athlete.last_activity_retrieved.blank? || activity_id > athlete.last_activity_retrieved
+      end
+      current_total_run_count = activities_to_retrieve.count
 
+      if mode == 'all' || athlete.total_run_count != current_total_run_count
         if activities_to_retrieve.count.positive?
           Rails.logger.info("ActivityFetcher - A total of #{activities_to_retrieve.count} activities to be retrieved for athlete #{athlete.id}.")
 
